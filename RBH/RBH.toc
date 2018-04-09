@@ -1,0 +1,15 @@
+## Interface: 70300
+## Title: Realm Bounty Hunter
+## Version: 1.0.2
+## Notes: A WPvP bounty hunting system.
+## Dependencies:
+## SavedVariablesPerCharacter: RBH_HitList, RBH_Notes, RBH_Issued, RBH_Claimed, RBH_Config, RBH_Network, RBH_PRIVATE_CHANNEL, RBH_PRIVATE_PASSWORD
+## SavedVariables: RBH_Intel
+
+rbh_templates.xml
+rbh_hitlist.xml
+rbh.xml
+rbh_config.xml
+rbh_add_bounty_frame.xml
+rbh_icons.xml
+ChatThrottleLib.lua

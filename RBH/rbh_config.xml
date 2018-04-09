@@ -1,0 +1,655 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ScrollFrame name="RBH_ConfigScrollFrame" inherits="UIPanelScrollFrameTemplate" setallpoints="true" hidden="true" parent="RBH_HitListFrame">
+      <Size>
+        <AbsDimension x="310" y="235"/>
+      </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="-95"/>
+                </Offset>
+            </Anchor>
+        </Anchors>    
+        <ScrollChild> 
+          <Frame name="RBH_ConfigForm">    
+            <Size>
+              <AbsDimension x="310" y="300" />
+            </Size>
+            <Scripts>
+                <OnShow>
+                    RBH_ConfigFormOnShow(self);
+                </OnShow>
+                <OnUpdate>
+                    RBH_ConfigFormOnUpdate(self);
+                </OnUpdate>
+            </Scripts>
+            <Anchors>
+                  <Anchor point="CENTER" relativeTo="UIParent">
+                    <Offset>
+                      <AbsDimension x="0" y="0" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>             
+            <Layers>
+              <Layer>                
+                <FontString name="$parentChannelsString" font="Fonts\FRIZQT__.TTF" text="Channels" justifyh="LEFT">
+                  <Size>
+                    <AbsDimension x="140" y="20" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="TOPLEFT">
+                      <Offset>
+                        <AbsDimension x="20" y="0" />
+                      </Offset>
+                    </Anchor>
+                  </Anchors>
+                  <FontHeight>
+                    <AbsValue val="12" />
+                  </FontHeight>
+                  <Color r="1" g="0.8196079" b="0" />
+                  <Shadow>
+                    <Color r="0" g="0" b="0" />
+                    <Offset>
+                      <AbsDimension x="1" y="-1" />
+                    </Offset>
+                  </Shadow>
+                </FontString>                
+              </Layer>
+              <Layer>                
+                <FontString name="$parentRejectBountiesString" font="Fonts\FRIZQT__.TTF" text="Reject Bounties" justifyh="LEFT">
+                  <Size>
+                    <AbsDimension x="140" y="20" />
+                  </Size>
+                  <Anchors>
+                    <Anchor point="TOPLEFT">
+                      <Offset>
+                        <AbsDimension x="20" y="-150" />
+                      </Offset>
+                    </Anchor>
+                  </Anchors>
+                  <FontHeight>
+                    <AbsValue val="12" />
+                  </FontHeight>
+                  <Color r="1" g="0.8196079" b="0" />
+                  <Shadow>
+                    <Color r="0" g="0" b="0" />
+                    <Offset>
+                      <AbsDimension x="1" y="-1" />
+                    </Offset>
+                  </Shadow>
+                </FontString>                
+              </Layer>
+            </Layers>
+            <Frames>
+              <CheckButton name="$parentCheckRealmChannel" checked="true">   
+                <Scripts>           
+                    <OnClick>
+                          RBH_ConfigChannels();
+                    </OnClick>
+                </Scripts>          
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-20" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Realm Channel">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <CheckButton name="$parentCheckGuildChannel" checked="true">   
+                 <Scripts>           
+                    <OnClick>
+                          RBH_ConfigChannels();
+                    </OnClick>
+                </Scripts>  
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-36" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Guild Channel">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <CheckButton name="$parentCheckPrivateChannel" checked="true">
+                 <Scripts>           
+                    <OnClick>
+                          RBH_ConfigChannels();
+                          RBH_CheckPrivateChannelClicked();
+                    </OnClick>
+                </Scripts>  
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-52" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Private Channel">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <Button name="$parentPrivateChannelEditBtn" text="Edit" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="DIALOG">
+                <Anchors>
+                    <Anchor relativePoint="RIGHT" relativeTo="$parentCheckPrivateChannel">
+                        <Offset><AbsDimension x="100" y="10"/></Offset>
+                    </Anchor>
+                </Anchors>
+                <Size x="50" y="20" />
+                <Scripts>					
+                    <OnClick>
+                        RBH_EditPrivateChannel()
+                    </OnClick>
+                </Scripts>
+              </Button>
+              <Button name="$parentPrivateChannelSaveBtn" text="Save" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="DIALOG">
+                <Anchors>
+                    <Anchor relativePoint="RIGHT" relativeTo="$parentPrivateChannelEditBtn">
+                        <Offset><AbsDimension x="2" y="10"/></Offset>
+                    </Anchor>
+                </Anchors>
+                <Size x="50" y="20" />
+                <Scripts>					
+                    <OnClick>
+                        RBH_SavePrivateChannel()
+                    </OnClick>
+                </Scripts>
+              </Button>
+              <Button name="$parentPrivateChannelCancelBtn" text="Cancel" inherits="UIPanelButtonTemplate" toplevel="true" frameStrata="DIALOG">
+                <Anchors>
+                    <Anchor relativePoint="RIGHT" relativeTo="$parentPrivateChannelSaveBtn">
+                        <Offset><AbsDimension x="2" y="10"/></Offset>
+                    </Anchor>
+                </Anchors>
+                <Size x="50" y="20" />
+                <Scripts>					
+                    <OnClick>
+                        RBH_CancelPrivateChannel()
+                    </OnClick>
+                </Scripts>
+              </Button>
+              <EditBox name="$parentChannelNameBox" id="1" inherits="RBH_EditBoxTemplate" letters="100" hidden="false" autoFocus="false">                     
+                <Size>
+                    <AbsDimension x="175" y="30" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="60" y="-80" />
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Layers>
+                    <Layer level="BORDER" >
+                        <Texture name="$parentTexture" file="Interface\Common\Common-Input-Border">  
+                            <Size>
+                                <AbsDimension x="175" y="30" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="LEFT">                                    
+                                    <Offset>
+                                        <AbsDimension x="-10" y="-5" />
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>                           
+                        </Texture>                 			
+                    </Layer>
+                    <Layer>
+                        <FontString name="$parentLabelString" font="Fonts\FRIZQT__.TTF" text="Channel Name" justifyH="LEFT">
+                            <Size>
+                                <AbsDimension x="100" y="0" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="-10" y="5" />
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                            <FontHeight>
+                                <AbsValue val="10" />
+                            </FontHeight>
+                            <Color r="1" g="0.8196079" b="0" />
+                            <Shadow>
+                                <Color r="0" g="0" b="0" />
+                                <Offset>
+                                    <AbsDimension x="1" y="-1" />
+                                </Offset>
+                            </Shadow>
+                        </FontString>  
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnEscapePressed>
+                        self:ClearFocus();
+                    </OnEscapePressed>
+                    <OnEditFocusGained>
+                        --FriendlistCharFramePg1NameBox_OnNameBoxFocus()
+                    </OnEditFocusGained>
+                </Scripts>
+            </EditBox> 
+            <EditBox name="$parentPasswordBox" id="1" inherits="RBH_EditBoxTemplate" letters="100" hidden="false" autoFocus="false">                     
+                <Size>
+                    <AbsDimension x="175" y="30" />
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="60" y="-120" />
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Layers>
+                    <Layer level="BORDER" >
+                        <Texture name="$parentTexture" file="Interface\Common\Common-Input-Border">  
+                            <Size>
+                                <AbsDimension x="175" y="30" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="LEFT">                                    
+                                    <Offset>
+                                        <AbsDimension x="-10" y="-5" />
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>                           
+                        </Texture>                 			
+                    </Layer>
+                    <Layer>
+                        <FontString name="$parentLabelString" font="Fonts\FRIZQT__.TTF" text="Password" justifyH="LEFT">
+                            <Size>
+                                <AbsDimension x="100" y="0" />
+                            </Size>
+                            <Anchors>
+                                <Anchor point="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="-10" y="5" />
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                            <FontHeight>
+                                <AbsValue val="10" />
+                            </FontHeight>
+                            <Color r="1" g="0.8196079" b="0" />
+                            <Shadow>
+                                <Color r="0" g="0" b="0" />
+                                <Offset>
+                                    <AbsDimension x="1" y="-1" />
+                                </Offset>
+                            </Shadow>
+                        </FontString>  
+                    </Layer>
+                </Layers>  
+                <Scripts>
+                    <OnEscapePressed>
+                        self:ClearFocus();
+                    </OnEscapePressed>
+                    <OnEditFocusGained>
+                        --FriendlistCharFramePg1NameBox_OnNameBoxFocus()
+                    </OnEditFocusGained>
+                </Scripts>
+            </EditBox>   
+            <CheckButton name="$parentRejectHorde" checked="false">   
+                <Scripts>           
+                    <OnClick>
+                          RBH_Config["RejectHorde"] = self:GetChecked();
+                    </OnClick>
+                </Scripts>          
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-168" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Horde">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <CheckButton name="$parentRejectAlliance" checked="false">   
+                <Scripts>           
+                    <OnClick>
+                          RBH_Config["RejectAlliance"] = self:GetChecked();
+                    </OnClick>
+                </Scripts>          
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-184" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Alliance">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <CheckButton name="$parentRejectUnknown" checked="false">   
+                <Scripts>           
+                    <OnClick>
+                          RBH_Config["RejectUnknown"] = self:GetChecked();
+                    </OnClick>
+                </Scripts>          
+                <Size>
+                  <AbsDimension x="16" y="16" />
+                </Size>
+                <Anchors>
+                  <Anchor point="TOPLEFT">
+                    <Offset>
+                      <AbsDimension x="27" y="-200" />
+                    </Offset>
+                  </Anchor>
+                </Anchors>
+                <Layers>
+                  <Layer>
+                    <FontString name="$parentText" font="Fonts\FRIZQT__.TTF" text="Unknown Faction">
+                      <Anchors>
+                        <Anchor point="LEFT" relativePoint="RIGHT">
+                          <Offset>
+                            <AbsDimension x="-2" y="0" />
+                          </Offset>
+                        </Anchor>
+                      </Anchors>
+                      <FontHeight>
+                        <AbsValue val="10" />
+                      </FontHeight>
+                      <Color r="1" g="0.8196079" b="0" />
+                      <Shadow>
+                        <Color r="0" g="0" b="0" />
+                        <Offset>
+                          <AbsDimension x="1" y="-1" />
+                        </Offset>
+                      </Shadow>
+                    </FontString>
+                  </Layer>
+                </Layers>
+                <NormalTexture file="Interface\Buttons\UI-CheckBox-Up" />
+                <PushedTexture file="Interface\Buttons\UI-CheckBox-Down" />
+                <HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD" />
+                <CheckedTexture file="Interface\Buttons\UI-CheckBox-Check" />
+                <DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled" />
+              </CheckButton>
+              <Frame name="$parentMinAmount" inherits="MoneyInputFrameTemplate" >      
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset>
+                              <AbsDimension x="105" y="-216" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>	
+                    <Layers>
+                        <Layer>
+                            <FontString name="$parentAmountString" font="Fonts\FRIZQT__.TTF" text="Min Amount:">
+                                <Size>
+                                    <AbsDimension x="140" y="0" />
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="LEFT">
+                                        <Offset>
+                                            <AbsDimension x="-115" y="0" />
+                                        </Offset>
+                                    </Anchor>
+                                </Anchors>
+                                <FontHeight>
+                                    <AbsValue val="10" />
+                                </FontHeight>
+                                <Color r="1" g="0.8196079" b="0" />
+                                <Shadow>
+                                    <Color r="0" g="0" b="0" />
+                                    <Offset>
+                                        <AbsDimension x="1" y="-1" />
+                                    </Offset>
+                                </Shadow>
+                            </FontString>  
+                        </Layer>
+                    </Layers>
+                </Frame>
+                <Button name="$parentMaxAgeDecrementButton">
+                    <Size>
+                        <AbsDimension x="23" y="22"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="BOTTOMLEFT" relativeTo="$parentMinAmount">
+                            <Offset>
+                                <AbsDimension x="-5" y="-30"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Scripts>
+                        <OnClick>
+                            RBH_ConfigFormMaxAgeDec();
+                        </OnClick>                    
+                    </Scripts>
+                    <NormalTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Up"/>
+                    <PushedTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Down"/>
+                    <DisabledTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Disabled"/>
+                    <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
+                </Button>
+                <EditBox name="$parentMaxAge" id="2" letters="50" inherits="RBH_EditBoxTemplate" hidden="false" text="1">                   
+                    <Size>
+                        <AbsDimension x="50" y="30" />
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentMaxAgeDecrementButton" realtivePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="27" y="0" />
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Layers>
+                        <Layer level="BORDER" >
+                            <Texture name="$parentTexture" file="Interface\Common\Common-Input-Border">  
+                                <Size>
+                                    <AbsDimension x="50" y="30" />
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="LEFT">                                    
+                                        <Offset>
+                                            <AbsDimension x="-5" y="-5" />
+                                        </Offset>
+                                    </Anchor>
+                                </Anchors>
+                            </Texture>                 			
+                        </Layer>
+                        <Layer>
+                            <FontString name="$parentMaxAgeString" font="Fonts\FRIZQT__.TTF" text="Max Age:" justifyH="RIGHT">
+                                <Size>
+                                    <AbsDimension x="80" y="0" />
+                                </Size>
+                                <Anchors>
+                                    <Anchor point="LEFT">
+                                        <Offset>
+                                            <AbsDimension x="-112" y="0" />
+                                        </Offset>
+                                    </Anchor>
+                                </Anchors>
+                                <FontHeight>
+                                    <AbsValue val="10" />
+                                </FontHeight>
+                                <Color r="1" g="0.8196079" b="0" />
+                                <Shadow>
+                                    <Color r="0" g="0" b="0" />
+                                    <Offset>
+                                        <AbsDimension x="1" y="-1" />
+                                    </Offset>
+                                </Shadow>
+                            </FontString>  
+                        </Layer>
+                    </Layers>
+                    <Scripts>
+                        <OnEscapePressed>
+                            self:ClearFocus();
+                        </OnEscapePressed>                    
+                        <OnTextChanged>
+                            RBH_ConfigFormValidateMaxAge();
+                        </OnTextChanged>
+                    </Scripts>
+                </EditBox>  
+                <Button name="$parentMaxAgeIncrementButton">
+                    <Size>
+                        <AbsDimension x="23" y="22"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parentMaxAge" relativePoint="RIGHT">
+                            <Offset>
+                                <AbsDimension x="-5" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                    <Scripts>
+                        <OnClick>
+                            RBH_ConfigFormMaxAgeInc();
+                        </OnClick>
+                    </Scripts>
+                    <NormalTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-NextPage-Up"/>
+                    <PushedTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-NextPage-Down"/>
+                    <DisabledTexture urgency="5" file="Interface\Buttons\UI-SpellbookIcon-NextPage-Disabled"/>
+                    <HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
+                </Button>
+            </Frames>
+          </Frame>
+    </ScrollChild>
+  </ScrollFrame>
+</Ui>

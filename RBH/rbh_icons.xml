@@ -1,0 +1,108 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    
+    <Button name="RBH_BountyListButton" parent="RBH_HitListFrame">
+        <Size x="32" y="32" />
+        <Layers>
+            <Layer level="OVERLAY">
+                <Texture name="$parentIcon" file="interface\addons\RBH\images\bountylistbutton" setAllPoint="true" />
+            </Layer>
+        </Layers>
+        <Scripts>            
+            <OnEnter>                
+                RBH_EnterBountyListButton(self)
+            </OnEnter>
+            <OnLeave>
+                RBH_LeaveBountyListButton()
+            </OnLeave>
+            <OnClick>
+                RBH_DisplayBountyList()
+            </OnClick>
+        </Scripts>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="RBH_HitListFrame" >
+                <Offset>
+                    <AbsDimension x="80" y="-34" />
+                </Offset>
+            </Anchor>
+        </Anchors>        
+    </Button>
+    <Button name="RBH_TrophyBagButton" parent="RBH_HitListFrame">
+        <Size x="32" y="32" />
+        <Layers>
+            <Layer level="OVERLAY">
+                <Texture name="$parentIcon" file="interface\icons\INV_Misc_Bag_10_Red" setAllPoint="true" />
+            </Layer>
+        </Layers>
+        <Scripts>            
+            <OnEnter>                
+                RBH_EnterTrophyBagButton(self)
+            </OnEnter>
+            <OnLeave>
+                RBH_LeaveTrophyBagButton()
+            </OnLeave>
+            <OnClick>
+                --RBH_TrophyBagButtonOnClick()
+            </OnClick>
+        </Scripts>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativePoint="RIGHT" relativeTo="RBH_BountyListButton" >
+                <Offset>
+                    <AbsDimension x="5" y="16" />
+                </Offset>
+            </Anchor>
+        </Anchors>        
+    </Button>    
+    <Button name="RBH_IntelButton" parent="RBH_HitListFrame">
+        <Size x="32" y="32" />
+        <Layers>
+            <Layer level="OVERLAY">
+                <Texture name="$parentIcon" file="interface\icons\achievement_BG_ABshutout.png" setAllPoint="true" />
+            </Layer>
+        </Layers>
+        <Scripts>            
+            <OnEnter>
+                RBH_EnterIntelButton(self)
+            </OnEnter>
+            <OnLeave>
+                RBH_LeaveIntelButton()
+            </OnLeave>
+            <OnClick>
+                RBH_IntelOnClick()
+            </OnClick>
+        </Scripts>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativePoint="RIGHT" relativeTo="RBH_TrophyBagButton" >
+                <Offset>
+                    <AbsDimension x="5" y="16" />
+                </Offset>
+            </Anchor>
+        </Anchors>        
+    </Button>        
+    <Button name="RBH_ConfigButton" parent="RBH_HitListFrame">
+        <Size x="32" y="32" />
+        <Layers>
+            <Layer level="OVERLAY">
+                <Texture name="$parentIcon" file="interface\icons\trade_engineering" setAllPoint="true" />
+            </Layer>
+        </Layers>
+        <Scripts>            
+            <OnEnter>
+                RBH_EnterConfigButton(self)
+            </OnEnter>
+            <OnLeave>
+                RBH_LeaveConfigButton()
+            </OnLeave>
+            <OnClick>
+                RBH_ConfigScrollFrame:Show()                          
+                RBH_UIFrame:Hide() 
+                SetPortraitToTexture(RBH_HitListFrameSkullnXBonesTexture,"interface\\icons\\trade_engineering")
+            </OnClick>
+        </Scripts>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="RBH_HitListFrame" >
+                <Offset>
+                    <AbsDimension x="272" y="-34" />
+                </Offset>
+            </Anchor>
+        </Anchors>        
+    </Button>
+</Ui>
